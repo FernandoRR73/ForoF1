@@ -1,0 +1,108 @@
+.navbar-container {
+  width: 100%;
+  background-color: #37394b;
+}
+
+.navbar-content {
+  max-width: 1200px; /* Ajusta según sea necesario */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px; /* Aumenta la altura del navbar */
+}
+
+.navbar-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Hacer que los elementos ul se muestren como una fila */
+}
+
+.navbar-container li {
+  display: inline-block; /* Mostrar los elementos li en línea */
+  position: relative; /* Para posicionar el menú desplegable */
+}
+
+.navbar-container a,
+.navbar-container .dropdown-title {
+  color: white;
+  text-decoration: none;
+  display: block; /* Hacer que el enlace ocupe todo el espacio del li */
+  padding: 20px 10px; /* Aumenta el padding para dar más altura a los elementos */
+}
+
+.navbar-container li:not(.user-info):hover {
+  background-color: #00001b;
+}
+
+.navbar-container a:hover,
+.navbar-container .dropdown-title:hover {
+  color: #fd4a42;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #37394b;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 100%; /* Posicionar debajo del elemento padre */
+  left: 0; /* Alinear con el borde izquierdo del elemento padre */
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #00001b;
+  color: #fd4a42;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navbar-container nav ul li.user-info {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding: 0 10px; /* Asegúrate de tener un padding consistente */
+  background-color: transparent; /* Asegúrate de que no tenga fondo */
+}
+
+.navbar-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.navbar-username {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+.navbar-username:hover {
+  color: #fd4a42; /* Color del enlace al pasar el mouse */
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 20px 10px; /* Aumenta el padding para dar más altura al botón */
+}
+
+.logout-button:hover {
+  color: #fd4a42;
+}

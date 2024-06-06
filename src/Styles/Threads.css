@@ -1,0 +1,8 @@
+/* Estilos personalizados para los detalles */
+.list-group-item h2 {
+  margin-bottom: 5px; /* Margen inferior para el título */
+}
+
+.list-group-item p {
+  margin-bottom: 10px; /* Margen inferior para el contenido */
+}

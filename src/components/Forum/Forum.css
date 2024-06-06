@@ -1,0 +1,9 @@
+.message-item {
+  margin-bottom: 10px;
+  border-left: 4px solid #007bff;
+  padding-left: 10px;
+}
+
+.message-item strong {
+  color: #007bff;
+}

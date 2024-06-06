@@ -1,0 +1,12 @@
+.delete {
+  background-color: #fd4a42;
+  border-color: #fd4a42;
+  color: white;
+  margin-top: 15px; /* Añade un poco de espacio encima del botón */
+}
+
+.delete:hover {
+  background-color: #ff0d00;
+  border-color: #ff0d00;
+  color: white;
+}

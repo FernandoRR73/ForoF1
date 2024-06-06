@@ -1,0 +1,30 @@
+.custom-input {
+  border: 2px solid #ced4da;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+}
+
+.custom-input:focus, .custom-input:hover {
+  border-color: #37394b;
+  outline: none;
+  box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+
+.form-container {
+  margin-top: 50px; /* Ajusta este valor para mover el formulario hacia arriba o abajo */
+}
+
+.custom-button {
+  background-color: #37394b;
+  border-color: #37394b;
+  color: white;
+  width: 100%; /* Asegura que el botón ocupe el ancho completo del formulario */
+  margin-top: 15px; /* Añade un poco de espacio encima del botón */
+}
+
+.custom-button:hover {
+  background-color: #00001b;
+  border-color: #00001b;
+  color: #fd4a42;
+}

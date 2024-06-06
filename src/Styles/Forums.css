@@ -1,0 +1,8 @@
+.forum-link {
+  color: #007bff; /* Color azul para los enlaces */
+  text-decoration: none; /* Quitamos el subrayado predeterminado */
+}
+
+.forum-link:hover {
+  color: #0056b3; /* Color azul más oscuro al pasar el mouse */
+}

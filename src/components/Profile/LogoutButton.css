@@ -1,0 +1,12 @@
+.logout-c-button {
+  background-color: #37394b;
+  border-color: #37394b;
+  color: white;
+  margin-top: 15px; /* Añade un poco de espacio encima del botón */
+}
+
+.logout-c-button:hover {
+  background-color: #00001b;
+  border-color: #00001b;
+  color: #fd4a42;
+}

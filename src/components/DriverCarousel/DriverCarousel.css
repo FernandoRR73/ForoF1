@@ -1,0 +1,4 @@
+.driver-carousel img {
+  height: 300px; /* Ajusta la altura según sea necesario */
+  object-fit: cover;
+}

@@ -1,0 +1,13 @@
+.footer {
+  background-color: #37394b;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer h2 {
+  margin-bottom: 20px;
+}
+
+.footer img {
+  max-height: 50px;
+}

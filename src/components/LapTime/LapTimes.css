@@ -1,0 +1,38 @@
+.range-container {
+  width: 100%;
+}
+
+.range-container input[type="range"] {
+  width: 100%;
+}
+
+.form-control-range {
+  width: 100%;
+  display: inline-block;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.c-button {
+  background-color: #37394b;
+  border-color: #37394b;
+  color: white;
+  margin: 15px;
+
+}
+
+.c-button:hover {
+  background-color: #00001b;
+  border-color: #00001b;
+  color: #fd4a42;
+}
+
+.list-group-item {
+  margin-bottom: 1rem;
+}
+
+.form-check {
+  margin-top: 10px;
+}

@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'FuenteF1';
+  src: url('/public/fonts/Formula1-Regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family:'FuenteF1', sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
