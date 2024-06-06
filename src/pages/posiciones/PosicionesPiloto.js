@@ -38,17 +38,6 @@ const Posiciones = () => {
     fetchData();
   }, []);
 
-  const getColorClass = (constructorId) => {
-    switch (constructorId) {
-      case 'red_bull': return 'red-bull';
-      case 'ferrari': return 'ferrari';
-      case 'mercedes': return 'mercedes';
-      case 'mclaren': return 'mclaren';
-      // Añade más casos según los equipos
-      default: return 'default';
-    }
-  };
-
   return (
     <div className="container mt-5">
       <h1 className="mb-4">Tabla de Posiciones</h1>

@@ -7,8 +7,8 @@ const ThreadMessages = () => {
   const { threadId } = useParams();
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-  const [username, setUsername] = useState('');
-  const [avatar, setAvatar] = useState('');
+  const [ setUsername] = useState('');
+  const [setAvatar] = useState('');
   const [page, setPage] = useState(0); // Change to 0-based index for react-paginate
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -45,7 +45,7 @@ const ThreadMessages = () => {
         setUsername(data.username);
         setAvatar(`http://localhost:3001/${data.avatar}`);
       });
-  }, [threadId, page]);
+  },);
 
   const handleSubmit = (event) => {
     event.preventDefault();

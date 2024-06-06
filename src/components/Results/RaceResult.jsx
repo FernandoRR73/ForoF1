@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DorsalPiloto from '../PosicionesComponents/DorsalPiloto';
 
 const RaceResults = () => {
-  const { circuitId, gpNumber } = useParams();
+  const { gpNumber } = useParams();
   const [raceResults, setRaceResults] = useState(null);
 
   useEffect(() => {

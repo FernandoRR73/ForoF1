@@ -18,7 +18,6 @@ const UpdateUserForm = ({ onUpdate }) => {
       });
 
       if (response.ok) {
-        const data = await response.json();
         if (onUpdate) onUpdate(newUsername); // Añadir verificación
         navigate('/profile');
       } else {

@@ -5,7 +5,7 @@ const CreateThread = () => {
   const { forumId } = useParams();
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [content] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
