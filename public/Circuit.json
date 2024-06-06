@@ -1,0 +1,124 @@
+{
+  "circuits": [
+    {
+      "circuitId": "bahrain",
+      "name": "Bahrain International Circuit",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "jeddah",
+      "name": "Jeddah Street Circuit",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "albert_park",
+      "name": "Albert Park Circuit",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "suzuka",
+      "name": "Suzuka International Racing Course",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "shanghai",
+      "name": "Shanghai International Circuit",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "miami",
+      "name": "Miami International Autodrome",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "imola",
+      "name": "Autodromo Enzo e Dino Ferrari",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "monaco",
+      "name": "Circuit de Monaco",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "villeneuve",
+      "name": "Circuit Gilles Villeneuve",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "catalunya",
+      "name": "Circuit de Barcelona-Catalunya",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "red_bull_ring",
+      "name": "Red Bull Ring",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "silverstone",
+      "name": "Silverstone Circuit",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "hungaroring",
+      "name": "Hungaroring",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "spa",
+      "name": "Circuit de Spa-Francorchamps",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "zandvoort",
+      "name": "Circuit Zandvoort",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "monza",
+      "name": "Monza Circuit",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "baku",
+      "name": "Baku City Circuit",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "marina_bay",
+      "name": "Marina Bay Street Circuit",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "americas",
+      "name": "Circuit of the Americas",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "rodriguez",
+      "name": "Autodromo Hermanos Rodriguez",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "interlagos",
+      "name": "Interlagos Circuit",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "vegas",
+      "name": "Las Vegas Street Circuit",
+      "hasSprint": false
+    },
+    {
+      "circuitId": "losail",
+      "name": "Losail International Circuit",
+      "hasSprint": true
+    },
+    {
+      "circuitId": "yas_marina",
+      "name": "Yas Marina Circuit",
+      "hasSprint": false
+    }
+  ]
+}

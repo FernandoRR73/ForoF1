@@ -1,0 +1,122 @@
+{
+  "bahrain": {
+    "rightTurns": 9,
+    "leftTurns": 6,
+    "drsZones": 3
+  },
+  "jeddah": {
+    "rightTurns": 16,
+    "leftTurns": 11,
+    "drsZones": 3
+  },
+  "albert_park": {
+    "rightTurns": 10,
+    "leftTurns": 6,
+    "drsZones": 4
+  },
+  "suzuka": {
+    "rightTurns": 8,
+    "leftTurns": 10,
+    "drsZones": 1
+  },
+  "shanghai": {
+    "rightTurns": 7,
+    "leftTurns": 7,
+    "drsZones": 2
+  },
+  "miami": {
+    "rightTurns": 11,
+    "leftTurns": 7,
+    "drsZones": 3
+  },
+  "imola": {
+    "rightTurns": 9,
+    "leftTurns": 10,
+    "drsZones": 1
+  },
+  "monaco": {
+    "rightTurns": 12,
+    "leftTurns": 8,
+    "drsZones": 1
+  },
+  "villeneuve": {
+    "rightTurns": 8,
+    "leftTurns": 6,
+    "drsZones": 2
+  },
+  "catalunya": {
+    "rightTurns": 7,
+    "leftTurns": 9,
+    "drsZones": 2
+  },
+  "red_bull_ring": {
+    "rightTurns": 7,
+    "leftTurns": 3,
+    "drsZones": 3
+  },
+  "silverstone": {
+    "rightTurns": 10,
+    "leftTurns": 8,
+    "drsZones": 2
+  },
+  "hungaroring": {
+    "rightTurns": 6,
+    "leftTurns": 8,
+    "drsZones": 1
+  },
+  "spa": {
+    "rightTurns": 10,
+    "leftTurns": 9,
+    "drsZones": 2
+  },
+  "zandvoort": {
+    "rightTurns": 10,
+    "leftTurns": 4,
+    "drsZones": 2
+  },
+  "monza": {
+    "rightTurns": 7,
+    "leftTurns": 4,
+    "drsZones": 2
+  },
+  "baku": {
+    "rightTurns": 12,
+    "leftTurns": 8,
+    "drsZones": 2
+  },
+  "marina_bay": {
+    "rightTurns": 14,
+    "leftTurns": 10,
+    "drsZones": 3
+  },
+  "americas": {
+    "rightTurns": 9,
+    "leftTurns": 11,
+    "drsZones": 2
+  },
+  "rodriguez": {
+    "rightTurns": 7,
+    "leftTurns": 10,
+    "drsZones": 2
+  },
+  "interlagos": {
+    "rightTurns": 7,
+    "leftTurns": 6,
+    "drsZones": 2
+  },
+  "vegas": {
+    "rightTurns": 9,
+    "leftTurns": 7,
+    "drsZones": 2
+  },
+  "losail": {
+    "rightTurns": 10,
+    "leftTurns": 6,
+    "drsZones": 2
+  },
+  "yas_marina": {
+    "rightTurns": 9,
+    "leftTurns": 12,
+    "drsZones": 2
+  }
+}
