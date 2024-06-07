@@ -6,20 +6,24 @@ import ReactPaginate from 'react-paginate';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ThreadMessages.css'; // Importa los estilos personalizados
 
+// Componente principal para mostrar los mensajes del hilo
 const ThreadMessages = () => {
+  // Obtiene el ID del hilo de la URL
   const { threadId } = useParams();
+  // Define estados locales para los datos y controles del componente
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [username, setUsername] = useState('');
   const [avatar, setAvatar] = useState('');
-  const [page, setPage] = useState(0); // Change to 0-based index for react-paginate
+  const [page, setPage] = useState(0); // Cambia a índice basado en 0 para react-paginate
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const limit = 25;
   const [image, setImage] = useState(null);
 
-  const defaultAvatar = 'http://localhost:3001/default/avatar.png';
+  const defaultAvatar = 'http://localhost:3001/default/avatar.png'; // URL del avatar por defecto
 
+  // Función para obtener los mensajes de la API
   const fetchMessages = (page) => {
     setLoading(true);
     fetch(`http://localhost:3001/threads/messages/${threadId}?page=${page + 1}&limit=${limit}`, {
@@ -27,7 +31,7 @@ const ThreadMessages = () => {
     })
       .then(response => response.json())
       .then(data => {
-        // Prepend host to avatar and image URLs
+        // Actualiza los mensajes con las URLs correctas para avatar e imagen
         const updatedMessages = data.messages.map(message => ({
           ...message,
           avatar: message.avatar ? `http://localhost:3001/${message.avatar}` : defaultAvatar,
@@ -40,6 +44,7 @@ const ThreadMessages = () => {
       });
   };
 
+  // useEffect para obtener los mensajes y el perfil del usuario cuando cambia la página o el threadId
   useEffect(() => {
     fetchMessages(page);
 
@@ -53,6 +58,7 @@ const ThreadMessages = () => {
       });
   }, [page, threadId]);
 
+  // Maneja el envío de un nuevo mensaje
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -79,6 +85,7 @@ const ThreadMessages = () => {
             image: data.image ? `http://localhost:3001${data.image}` : null
           };
 
+          // Si el límite de mensajes se ha alcanzado, actualiza la página, de lo contrario, agrega el nuevo mensaje
           if (messages.length + 1 >= limit) {
             setPage(page + 1);
             setMessages([newMessageData]);
@@ -92,6 +99,7 @@ const ThreadMessages = () => {
       });
   };
 
+  // Maneja el cambio de página en la paginación
   const handlePageClick = (data) => {
     const selectedPage = data.selected;
     setPage(selectedPage);
@@ -137,11 +145,11 @@ const ThreadMessages = () => {
             onPageChange={handlePageClick}
             containerClassName={'pagination'}
             activeClassName={'active'}
-            forcePage={page} // Ensure the current page is highlighted
+            forcePage={page} // Asegura que la página actual esté resaltada
           />
         </>
       )}
-      {(totalPages === 0 || page === totalPages - 1) && ( // Ensure textarea is displayed if no pages or on the last page
+      {(totalPages === 0 || page === totalPages - 1) && ( // Muestra el área de texto si no hay páginas o si está en la última página
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <textarea
             value={newMessage}

@@ -5,19 +5,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../DriverCarousel/DriverCarousel.css';
 
 const ConstructorCarousel = ({ constructorId }) => {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState([]); // Declara un estado para las imágenes
 
   useEffect(() => {
-    if (constructorId) {
+    if (constructorId) { // Verifica si constructorId está definido
       const imagePaths = [
         `/images/${constructorId}/${constructorId}_1.jpg`,
         `/images/${constructorId}/${constructorId}_2.jpg`,
         `/images/${constructorId}/${constructorId}_3.jpg`
-      ];
-      setImages(imagePaths);
+      ]; // Define las rutas de las imágenes basadas en constructorId
+      setImages(imagePaths); // Actualiza el estado de las imágenes
     }
-  }, [constructorId]);
-
+  }, [constructorId]); // 
   return (
     <div className="driver-carousel-container">
       <Carousel className="driver-carousel">

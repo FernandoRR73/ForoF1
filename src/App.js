@@ -14,7 +14,6 @@ import SprintResults from "./components/Results/SprintResults.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import CreateThread from "./components/Forum/CreateTread.jsx";
 import UpdateUserForm from "./components/UserControllers/UpdateUserForm.jsx";
-import DeleteUserForm from "./components/UserControllers/DeleteUserForm.jsx";
 import LapTimes from "./components/LapTime/LapTimes.jsx";
 
 // Páginas importadas
@@ -64,7 +63,6 @@ function App() {
                 <Route path="/race-results/:gpNumber" element={<RaceResult />} />
                 <Route path="/qualifying-results/:gpNumber" element={<QualifyingResults />} />
                 <Route path="/sprint-results/:gpNumber" element={<SprintResults />} />
-                <Route path="/delete-user" element={<DeleteUserForm />}/>
                 <Route path="/update-user" element={<UpdateUserForm />}/>
                 <Route path="/lapTimes" element={<LapTimes />}/>
               </Routes>

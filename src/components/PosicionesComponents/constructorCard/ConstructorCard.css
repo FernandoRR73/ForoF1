@@ -11,7 +11,7 @@
   border-bottom: 0px;
   margin-bottom: 20px;
   border-bottom: 0px;
-  transition: border-color 0.3s, border-width 0.3s;
+  transition: border-color 0.3s, border-width 0.3s; 
 }
 a{
   color: black;
@@ -76,7 +76,6 @@ a{
   margin-top: 50px;
 }
 
-/* Hover effect with different border colors based on constructor */
 .col-md-6:hover .constructor-card {
   border-width: 5px;
 }

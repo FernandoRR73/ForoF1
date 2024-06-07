@@ -86,6 +86,7 @@
 
 .driver-detail {
   padding: 10px;
-  transition: background-color 0.3s ease;
+  /* transicion para el cambio de color */
+  transition: background-color 0.3s ease; 
   border-radius: 0px;
 }

@@ -8,41 +8,41 @@ import './Navbar.css';
 const Navbar = () => {
   const { user, setUser } = useContext(AuthContext);
   const { showNotification } = useContext(NotificationContext);
-  const navigate = useNavigate();
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const navigate = useNavigate(); 
+  const [showLogoutModal, setShowLogoutModal] = useState(false); 
 
   const handleLogout = async () => {
     try {
       const response = await fetch('http://localhost:3001/auth/logout', {
-        method: 'POST',
-        credentials: 'include'
+        method: 'POST', // Configura la solicitud como POST
+        credentials: 'include' // Incluye las credenciales en la solicitud
       });
 
       if (response.ok) {
-        setUser(null);
-        window.location.href = '/';
+        setUser(null); // Establece el usuario como null en el contexto de autenticación
+        window.location.href = '/'; // Redirige a la página de inicio
       } else {
         console.error('Error al cerrar sesión');
       }
     } catch (error) {
-      console.error('Error al cerrar sesión:', error);
+      console.error('Error al cerrar sesión:', error); 
     }
   };
 
   const handleForumClick = (event) => {
     if (!user) {
-      event.preventDefault();
-      showNotification('To access the forum, you must be logged in.');
-      navigate('/login');
+      event.preventDefault(); // Previene la acción predeterminada del evento si el usuario no está autenticado
+      showNotification('To access the forum, you must be logged in.'); // Muestra una notificación
+      navigate('/login'); // Redirige a la página de inicio de sesión
     }
   };
 
   const handleLogoutClick = () => {
-    setShowLogoutModal(true);
+    setShowLogoutModal(true); // Muestra el modal de cierre de sesión
   };
 
   const handleCloseModal = () => {
-    setShowLogoutModal(false);
+    setShowLogoutModal(false); // Cierra el modal de cierre de sesión
   };
 
   return (

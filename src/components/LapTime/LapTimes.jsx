@@ -4,7 +4,7 @@ import { Modal, Button } from 'react-bootstrap';
 import './LapTimes.css';
 
 const LapTimes = () => {
-  const [lapTimes, setLapTimes] = useState([]);
+  const [lapTimes, setLapTimes] = useState([]); // Estado para almacenar los tiempos de vuelta
   const [form, setForm] = useState({
     vehicle_type: 'F1',
     tire_type: 'blando',
@@ -33,13 +33,13 @@ const LapTimes = () => {
     front_right_pressure: 23.0,
     rear_left_pressure: 21.5,
     rear_right_pressure: 21.5
-  });
-  const [selectedLap, setSelectedLap] = useState(null);
-  const [showAddModal, setShowAddModal] = useState(false);
-  const [showSetupModal, setShowSetupModal] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [filterCircuit, setFilterCircuit] = useState('');
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+  }); // Estado para almacenar los datos del formulario
+  const [selectedLap, setSelectedLap] = useState(null); // Estado para almacenar el tiempo de vuelta seleccionado
+  const [showAddModal, setShowAddModal] = useState(false); // Estado para controlar la visibilidad del modal de agregar
+  const [showSetupModal, setShowSetupModal] = useState(false); // Estado para controlar la visibilidad del modal de configuración
+  const [errorMessage, setErrorMessage] = useState(''); // Estado para almacenar mensajes de error
+  const [filterCircuit, setFilterCircuit] = useState(''); // Estado para filtrar por circuito
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' }); // Estado para configurar la ordenación
 
   const circuitOptions = [
     { circuitId: "bahrain", name: "Bahrain International Circuit" },
@@ -66,14 +66,14 @@ const LapTimes = () => {
     { circuitId: "vegas", name: "Las Vegas Street Circuit" },
     { circuitId: "losail", name: "Losail International Circuit" },
     { circuitId: "yas_marina", name: "Yas Marina Circuit" }
-  ];
+  ]; // Opciones de circuitos
 
   useEffect(() => {
     fetch('http://localhost:3001/lapTimes', {
       credentials: 'include'
     })
       .then(response => response.json())
-      .then(data => setLapTimes(data));
+      .then(data => setLapTimes(data)); // Obtiene los tiempos de vuelta del servidor y los almacena en el estado
   }, []);
 
   const handleChange = (e) => {
@@ -81,7 +81,7 @@ const LapTimes = () => {
     setForm({
       ...form,
       [name]: type === 'checkbox' ? checked : (type === 'number' || type === 'range') ? parseFloat(value) : value
-    });
+    }); // Actualiza el estado del formulario basado en la entrada del usuario
   };
 
   const handleSubmit = (e) => {
@@ -89,7 +89,7 @@ const LapTimes = () => {
     const lapTimePattern = /^\d{1,2}:\d{2}:\d{3}$/;
     if (!lapTimePattern.test(form.lap_time)) {
       setErrorMessage('El tiempo de vuelta debe estar en el formato mm:ss:ms');
-      return;
+      return; // Valida el formato del tiempo de vuelta
     }
 
     fetch('http://localhost:3001/lapTimes', {
@@ -98,12 +98,12 @@ const LapTimes = () => {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-      body: JSON.stringify(form)
+      body: JSON.stringify(form) // Envía los datos del formulario al servidor
     })
       .then(response => response.json())
       .then(data => {
         if (data.message === 'Tiempo de vuelta añadido exitosamente') {
-          setLapTimes([...lapTimes, { ...form, id: data.id, created_at: new Date() }]);
+          setLapTimes([...lapTimes, { ...form, id: data.id, created_at: new Date() }]); // Actualiza la lista de tiempos de vuelta
           setForm({
             vehicle_type: 'F1',
             tire_type: 'blando',
@@ -132,9 +132,9 @@ const LapTimes = () => {
             front_right_pressure: 23.0,
             rear_left_pressure: 21.5,
             rear_right_pressure: 21.5
-          });
-          setShowAddModal(false);
-          setErrorMessage('');
+          }); // Restablece el formulario
+          setShowAddModal(false); // Cierra el modal de agregar
+          setErrorMessage(''); // Limpia el mensaje de error
         }
       });
   };
@@ -145,8 +145,8 @@ const LapTimes = () => {
     })
       .then(response => response.json())
       .then(data => {
-        setSelectedLap(data);
-        setShowSetupModal(true);
+        setSelectedLap(data); // Establece el tiempo de vuelta seleccionado
+        setShowSetupModal(true); // Muestra el modal de configuración
       });
   };
 
@@ -159,7 +159,7 @@ const LapTimes = () => {
         .then(response => response.json())
         .then(data => {
           if (data.message === 'Lap time successfully removed') {
-            setLapTimes(lapTimes.filter(lap => lap.id !== id));
+            setLapTimes(lapTimes.filter(lap => lap.id !== id)); // Elimina el tiempo de vuelta de la lista
           }
         });
     }
@@ -170,7 +170,7 @@ const LapTimes = () => {
     if (sortConfig.key === key && sortConfig.direction === 'asc') {
       direction = 'desc';
     }
-    setSortConfig({ key, direction });
+    setSortConfig({ key, direction }); // Configura la ordenación
   };
 
   const sortedLapTimes = [...lapTimes].sort((a, b) => {
@@ -181,11 +181,11 @@ const LapTimes = () => {
       return sortConfig.direction === 'asc' ? 1 : -1;
     }
     return 0;
-  });
+  }); // Ordena los tiempos de vuelta
 
   const filteredLapTimes = filterCircuit
     ? sortedLapTimes.filter((lap) => lap.circuit === filterCircuit)
-    : sortedLapTimes;
+    : sortedLapTimes; // Filtra los tiempos de vuelta por circuito
 
   const renderSetupFields = (form, handleChange) => (
     <>
@@ -316,7 +316,7 @@ const LapTimes = () => {
         </div>
       </div>
     </>
-  );
+  ); // Renderiza los campos de configuración
 
   return (
     <div className="container mt-5">

@@ -12,15 +12,15 @@
 }
 
 .form-container {
-  margin-top: 50px; /* Ajusta este valor para mover el formulario hacia arriba o abajo */
+  margin-top: 50px; 
 }
 
 .custom-button {
   background-color: #37394b;
   border-color: #37394b;
   color: white;
-  width: 100%; /* Asegura que el botón ocupe el ancho completo del formulario */
-  margin-top: 15px; /* Añade un poco de espacio encima del botón */
+  width: 100%; 
+  margin-top: 15px; 
 }
 
 .custom-button:hover {

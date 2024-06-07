@@ -6,41 +6,40 @@ const UpdateUser = ({ onUpdate }) => {
   const [newUsername, setNewUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState(''); 
+  const [success, setSuccess] = useState(''); 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     
     if (newPassword && newPassword !== confirmPassword) {
-      setError('Las contraseñas no coinciden');
+      setError('Las contraseñas no coinciden'); // Verifica si las contraseñas coinciden
       return;
     }
 
-    setError(''); // Clear any previous errors
+    setError(''); // Limpia cualquier error previo
 
     try {
       const response = await fetch('http://localhost:3001/auth/updateUser', {
-        method: 'PUT',
+        method: 'PUT', // Configura la solicitud como PUT
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json' // Especifica el tipo de contenido como JSON
         },
-        credentials: 'include', // Asegúrate de incluir las cookies de sesión
-        body: JSON.stringify({ newEmail, newUsername, newPassword })
+        credentials: 'include', // Incluir las cookies de sesión
+        body: JSON.stringify({ newEmail, newUsername, newPassword }) // Convierte el cuerpo de la solicitud a JSON
       });
 
       if (response.ok) {
-        const data = await response.json();
-        onUpdate(newUsername);
+        onUpdate(newUsername); // Actualiza el nombre de usuario en el contexto
         setSuccess('Perfil actualizado exitosamente');
-        setError('');
+        setError(''); 
       } else {
         const data = await response.json();
         setError(data.message || 'Error al actualizar usuario');
-        setSuccess('');
+        setSuccess(''); 
       }
     } catch (error) {
-      setError('Error al actualizar usuario');
+      setError('Error al actualizar usuario'); 
       setSuccess('');
       console.error('Error al actualizar usuario:', error);
     }
@@ -52,8 +51,8 @@ const UpdateUser = ({ onUpdate }) => {
         <Col xs={12} md={6} lg={4} className="mx-auto">
           <Form onSubmit={handleSubmit}>
             <h3>Actualizar Usuario</h3>
-            {error && <Alert variant="danger">{error}</Alert>}
-            {success && <Alert variant="success">{success}</Alert>}
+            {error && <Alert variant="danger">{error}</Alert>} {/* Muestra mensaje de error */}
+            {success && <Alert variant="success">{success}</Alert>} {/* Muestra mensaje de éxito */}
             <Form.Group controlId="formNewEmail">
               <Form.Label>Nuevo Correo Electrónico:</Form.Label>
               <Form.Control
