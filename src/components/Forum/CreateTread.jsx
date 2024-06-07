@@ -5,7 +5,7 @@ const CreateThread = () => {
   const { forumId } = useParams();
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
-  const [content] = useState('');
+  const [content, setContent] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,15 +34,33 @@ const CreateThread = () => {
   };
 
   return (
-    <div>
-      <h1>Crear Nuevo Hilo</h1>
+    <div className="container mt-5">
+      <h1>Create thread</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Título:
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
-        </label>
-        <br />
-        <button type="submit">Crear Hilo</button>
+        <div className="mb-3">
+          <label className="form-label">
+            title:
+            <input
+              type="text"
+              className="form-control"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div className="mb-3">
+          <label className="form-label">
+            Subtitle:
+            <textarea
+              className="form-control"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <button type="submit" className="btn c-button">Create thread</button>
       </form>
     </div>
   );

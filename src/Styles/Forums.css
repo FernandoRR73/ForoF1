@@ -1,8 +1,20 @@
-.forum-link {
-  color: #007bff; /* Color azul para los enlaces */
-  text-decoration: none; /* Quitamos el subrayado predeterminado */
+/* src/Styles/Forums.css */
+
+.forum-item {
+  border: 2px solid #37394B;
+  transition: background-color 0.3s;
+  text-align: center;
 }
 
-.forum-link:hover {
-  color: #0056b3; /* Color azul más oscuro al pasar el mouse */
+.f-list:hover {
+  background-color: #37394B;
+  color:#FD4A42;
+}
+.forum-link:hover{
+  color:#FD4A42;
+}
+
+.d-block {
+  width: 100%;
+  height: 100%;
 }

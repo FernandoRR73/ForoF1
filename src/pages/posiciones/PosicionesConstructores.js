@@ -25,7 +25,7 @@ const PosicionesConstructores = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">Tabla de Posiciones de Constructores</h1>
+      <h1 className="mb-4">Teams Standings</h1>
       <ApiConstructor onDataFetched={handleConstructorDataFetched} />
       <ApiPiloto onDataFetched={handleDriverDataFetched} />
       <div className="row">

@@ -48,6 +48,7 @@ const SprintResults = () => {
         <thead>
           <tr>
             <th>Position</th>
+            <th>Dorsal</th>
             <th>Driver</th>
             <th>Constructor</th>
             <th>Time</th>

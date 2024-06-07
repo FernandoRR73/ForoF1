@@ -39,7 +39,7 @@ const RaceCalendar = () => {
         <thead>
           <tr>
             <th>Grand Prix</th>
-            <th>Circuit</th>
+            <th>Track</th>
             <th>Date</th>
             <th>Time</th>
             <th>Sprint</th>

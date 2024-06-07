@@ -50,10 +50,7 @@ const Navbar = () => {
       <nav className="container">
         <ul>
           <li>
-            <Link to="/">Inicio</Link>
-          </li>
-          <li>
-            <Link to="/about">Acerca de</Link>
+            <Link to="/">Home</Link>
           </li>
           <li className="dropdown">
             <span className="dropdown-title">Standings</span>
@@ -70,9 +67,9 @@ const Navbar = () => {
           </li>
           {user ? (
             <li className="user-info">
-              {user.avatar && <img src={`http://localhost:3001/${user.avatar}`} alt="Avatar" className="navbar-avatar" />}
+              <Link to="/profile" className="navbar-username"></Link>{user.avatar && <img src={`http://localhost:3001/${user.avatar}`} alt="Avatar" className="navbar-avatar" />}
               <Link to="/profile" className="navbar-username">{user.username}</Link>
-              <button onClick={handleLogoutClick} className="logout-button">Cerrar Sesión</button>
+              <button onClick={handleLogoutClick} className="logout-button">Log out</button>
             </li>
           ) : (
             <>
@@ -80,7 +77,7 @@ const Navbar = () => {
                 <Link to="/login">Login</Link>
               </li>
               <li>
-                <Link to="/register">Regístrate</Link>
+                <Link to="/register">Register Now</Link>
               </li>
             </>
           )}
@@ -90,17 +87,17 @@ const Navbar = () => {
       {/* Modal de confirmación de cierre de sesión */}
       <Modal show={showLogoutModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Confirmación de Cierre de Sesión</Modal.Title>
+          <Modal.Title>Logout Confirmation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          ¿Estás seguro de que deseas cerrar sesión?
+          Are you sure you want to log out?
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
+          <Button className='c-button' onClick={handleCloseModal}>
             Cancelar
           </Button>
           <Button variant="danger" onClick={handleLogout}>
-            Cerrar Sesión
+            Logout
           </Button>
         </Modal.Footer>
       </Modal>

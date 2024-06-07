@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Forums.css'; // Asegúrate de crear este archivo CSS para estilos personalizados
 
 const Forums = () => {
   const [threads, setThreads] = useState([]);
@@ -25,11 +26,11 @@ const Forums = () => {
       <h2>Foros</h2>
       <ul className="list-group mt-3">
         {threads.map((thread) => (
-          <li key={thread.id} className="list-group-item">
-            <Link to={`/threads/${thread.id}`}>{thread.title}</Link>
+          <Link key={thread.id} to={`/threads/${thread.id}`} className="list-group-item list-group-item-action">
+            <h5>{thread.title}</h5>
             <p>{thread.content}</p>
             <small>{thread.username} en {thread.forum_title} - {new Date(thread.created_at).toLocaleString()}</small>
-          </li>
+          </Link>
         ))}
       </ul>
     </div>

@@ -40,24 +40,24 @@ const Posiciones = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">Tabla de Posiciones</h1>
+      <h1 className="mb-4">Driver Standings</h1>
       <div className="row">
         {driverStandings.map((driver, index) => (
           <div className="col-md-6 mb-3" key={index}>
             <Link to={`/drivers/${driver.driverId}`} className="card-link">
               <div className={`card ${driver.constructor}`}>
                 <div className="card-header">
-                  <h5 className="card-title">Posición: {driver.position}</h5>
-                  <h6 className="card-subtitle mb-2 text-muted">Puntos: {driver.points}</h6>
+                  <h5 className="card-title">Position: {driver.position}</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">Points: {driver.points}</h6>
                 </div>
                 <div className="card-body">
                   <h5 className="card-title">{driver.givenName} {driver.familyName}</h5>
-                  <DriverImage driverId={driver.driverId} />
+                  <DriverImage className="imagenpiloto" driverId={driver.driverId} />
                   <DorsalPiloto driverId={driver.driverId} />
                   <TeamLogo constructorName={driver.constructor} />
                 </div>
                 <div className="card-footer">
-                  <small className="text-muted">Victorias: {driver.wins}</small>
+                  <small className="text-muted">Wins: {driver.wins}</small>
                 </div>
               </div>
             </Link>

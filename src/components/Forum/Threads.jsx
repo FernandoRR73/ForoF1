@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Styles/Threads.css'; // Importamos el archivo CSS para los estilos personalizados
 
 const Threads = () => {
@@ -15,15 +16,14 @@ const Threads = () => {
   }, [forumId]);
 
   return (
-    <div className="container mt-4"> {/* Utilizamos clases de Bootstrap para la estructura */}
-      <h1>Hilos del Foro</h1>
-      <Link to={`/forums/${forumId}/create`} className="btn btn-primary mb-3">Crear nuevo hilo</Link> {/* Clases de Bootstrap para el botón */}
-      <ul className="list-group"> {/* Clase de Bootstrap para la lista */}
+    <div className="container mt-4">
+      <h1>Threads</h1>
+      <Link to={`/forums/${forumId}/create`} className="btn c-button mb-3">Create new Thread</Link>
+      <ul className="list-group">
         {threads.map(thread => (
-          <li key={thread.id} className="list-group-item"> {/* Clases de Bootstrap para los elementos de la lista */}
+          <li key={thread.id} className="list-group-item">
             <h2>{thread.title}</h2>
-            <p>{thread.content}</p>
-            <Link to={`/threads/${thread.id}`} className="btn btn-info">Ver discusión</Link> {/* Clases de Bootstrap para el botón */}
+            <Link to={`/threads/${thread.id}`} className="btn c-button">Show Messages</Link>
           </li>
         ))}
       </ul>

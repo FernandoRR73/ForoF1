@@ -19,7 +19,6 @@ import LapTimes from "./components/LapTime/LapTimes.jsx";
 
 // Páginas importadas
 import Home from './pages/Home.js';
-import About from "./pages/About.js";
 import PosicionesPilotos from "./pages/posiciones/PosicionesPiloto.js";
 import PosicionesConstructores from "./pages/posiciones/PosicionesConstructores.js";
 import Login from "./pages/Login.js";
@@ -48,8 +47,8 @@ function App() {
             <div className="container-content">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
                 <Route path="standings/drivers" element={<PosicionesPilotos />} />
+                
                 <Route path="standings/constructors" element={<PosicionesConstructores />} />
                 <Route path="/drivers/:driverId" element={<DriverDetailPage />} />
                 <Route path="/constructor/:constructorId" element={<ConstructorDetailPage />} />

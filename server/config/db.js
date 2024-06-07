@@ -17,44 +17,109 @@ const db = new sqlite3.Database(DB_FILE, (err) => {
     // También establece relaciones de clave externa (FOREIGN KEY) cuando sea necesario
 
     // Tabla de usuarios
-    db.run(`CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      email TEXT UNIQUE,
-      username TEXT NOT NULL UNIQUE,
-      password TEXT NOT NULL,
-      avatar TEXT
-    )`);
+    db.run(`
+      CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT,
+        password TEXT,
+        role TEXT DEFAULT 'basic',
+        avatar TEXT,
+        email TEXT
+      );
+    `);
 
     // Tabla de foros
-    db.run(`CREATE TABLE IF NOT EXISTS forums (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      title TEXT NOT NULL,
-      description TEXT
-    )`);
+    db.run(`
+      CREATE TABLE IF NOT EXISTS forums (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        description TEXT
+      );
+    `);
 
     // Tabla de hilos (threads)
-    db.run(`CREATE TABLE IF NOT EXISTS threads (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      forum_id INTEGER,
-      user_id INTEGER,
-      title TEXT NOT NULL,
-      content TEXT NOT NULL,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (forum_id) REFERENCES forums(id),
-      FOREIGN KEY (user_id) REFERENCES users(id)
-    )`);
+    db.run(`
+      CREATE TABLE IF NOT EXISTS threads (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        forum_id INTEGER,
+        user_id INTEGER,
+        title TEXT NOT NULL,
+        content TEXT NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (forum_id) REFERENCES forums (id),
+        FOREIGN KEY (user_id) REFERENCES users (id)
+      );
+    `);
 
     // Tabla de mensajes
-    db.run(`CREATE TABLE IF NOT EXISTS messages (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      thread_id INTEGER,
-      user_id INTEGER,
-      content TEXT NOT NULL,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (thread_id) REFERENCES threads(id),
-      FOREIGN KEY (user_id) REFERENCES users(id)
-    )`);
+    db.run(`
+      CREATE TABLE IF NOT EXISTS messages (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        thread_id INTEGER,
+        user_id INTEGER,
+        content TEXT NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        image TEXT,
+        FOREIGN KEY (thread_id) REFERENCES threads (id),
+        FOREIGN KEY (user_id) REFERENCES users (id)
+      );
+    `);
 
+    //tabla mensaje
+    db.run(`
+      CREATE TABLE IF NOT EXISTS mensaje (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        users_id INTEGER REFERENCES users (id),
+        contenido TEXT,
+        fecha TEXT
+      );
+    `);
+
+    //tabla de tiempos
+    db.run(`
+      CREATE TABLE IF NOT EXISTS lap_times (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        vehicle_type TEXT,
+        tire_type TEXT,
+        weather TEXT,
+        lap_time TEXT,
+        controller TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        circuit TEXT,
+        setup_id INTEGER REFERENCES setups (id) ON DELETE CASCADE,
+        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+      );
+    `);
+
+    //tabla de setups
+    db.run(`
+      CREATE TABLE IF NOT EXISTS setups (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        lap_time_id INTEGER,
+        front_wing INTEGER,
+        rear_wing INTEGER,
+        differential_on INTEGER,
+        differential_off INTEGER,
+        front_camber REAL,
+        rear_camber REAL,
+        front_toe REAL,
+        rear_toe REAL,
+        front_suspension INTEGER,
+        rear_suspension INTEGER,
+        front_antiroll INTEGER,
+        rear_antiroll INTEGER,
+        front_height INTEGER,
+        rear_height INTEGER,
+        brake_pressure INTEGER,
+        brake_bias INTEGER,
+        front_left_pressure REAL,
+        front_right_pressure REAL,
+        rear_left_pressure REAL,
+        rear_right_pressure REAL,
+        FOREIGN KEY (lap_time_id) REFERENCES lap_times (id) ON DELETE CASCADE
+      );
+    `);
   }
 });
 

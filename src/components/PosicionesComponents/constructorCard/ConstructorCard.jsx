@@ -11,8 +11,8 @@ const ConstructorCard = ({ constructor, drivers }) => {
   return (
     <div className={`constructor-card ${teamClass}`}>
       <div className="card-header d-flex justify-content-between">
-        <div className="position">Posición: {constructor.position}</div>
-        <div className="points">Puntos: {constructor.points}</div>
+        <div className="position">Position: {constructor.position}</div>
+        <div className="points">Points: {constructor.points}</div>
       </div>
       <div className="card-body">
         <div className="constructor-name-logo d-flex justify-content-between align-items-center">

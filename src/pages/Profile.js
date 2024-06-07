@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import UploadAvatar from '../components/Profile/UploadAvatar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/Profile.css';
 
 const Profile = () => {
@@ -31,36 +31,42 @@ const Profile = () => {
     fetchProfile();
   }, [navigate]);
 
-  const handleAvatarClick = () => {
-    document.getElementById('avatarInput').click();
+  const handleDeleteUser = () => {
+    if (window.confirm('Are you sure you want to delete your account? This action can not be undone.')) {
+      navigate('/delete-user');
+    }
   };
 
   if (!profile) {
-    return <div>Cargando perfil...</div>;
+    return <div className="text-center mt-5">Loading Profile...</div>;
   }
 
   return (
-    <div className="profile-container">
-      <UploadAvatar onUpload={newAvatar => setProfile({ ...profile, avatar: newAvatar })} />
-      {profile.avatar && (
-        <img
-          src={`http://localhost:3001/${profile.avatar}`}
-          alt="Avatar"
-          className="profile-avatar"
-          onClick={handleAvatarClick}
-          style={{ cursor: 'pointer' }}
-        />
-      )}
-      <h2>{profile.username}</h2>
-      <Link to="/update-user">
-        <button>Modificar Usuario</button>
-      </Link>
-      <Link to="/delete-user">
-        <button>Eliminar Usuario</button>
-      </Link>
-      <Link to="/lapTimes">
-        <button>Mis Tiempos de Vuelta</button>
-      </Link>
+    <div className="container mt-5 profile-container">
+      <div className="row">
+        <div className="col-md-4 text-center">
+          {profile.avatar && (
+            <img
+              src={`http://localhost:3001/${profile.avatar}`}
+              alt="Avatar"
+              className="img-fluid rounded-circle profile-avatar"
+              style={{ width: '150px', height: '150px' }}
+            />
+          )}
+        </div>
+        <div className="col-md-8">
+          <h2>{profile.username}</h2>
+          <div className="col-6">
+            <Link to="/update-user">
+              <button className="btn c-button me-2">Update User</button>
+            </Link>
+            <Link to="/lapTimes">
+              <button className="btn c-button">My Lap Times</button>
+            </Link>
+            <button className="ms-3 mt-3 btn btn-danger me-2" onClick={handleDeleteUser}>Delete User</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -111,12 +111,12 @@ const DriverDetailPage = () => {
           <div className="driver-details mt-4">
             {driver && (
               <>
-                <p><strong>Equipo:</strong> {team}</p>
-                <p><strong>Nacionalidad:</strong> {driver.nationality}</p>
-                <p><strong>Fecha de Nacimiento:</strong> {driver.dateOfBirth}</p>
-                <p><strong>Victorias:</strong> {victories}</p>
-                <p><strong>Podios:</strong> {podiums}</p>
-                <p><a href={driver.wikipediaUrl} target="_blank" rel="noopener noreferrer">Biografía</a></p>
+                <p><strong>Team:</strong> {team}</p>
+                <p><strong>Nationality:</strong> {driver.nationality}</p>
+                <p><strong>Birthdate:</strong> {driver.dateOfBirth}</p>
+                <p><strong>Total Wins:</strong> {victories}</p>
+                <p><strong>Total podiums:</strong> {podiums}</p>
+                <p><a href={driver.wikipediaUrl} target="_blank" rel="noopener noreferrer" className='btn c-button'>Biography</a></p>
               </>
             )}
           </div>

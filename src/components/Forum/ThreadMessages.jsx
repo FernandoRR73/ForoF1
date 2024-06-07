@@ -1,19 +1,24 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './ThreadMessages.css'; // Importa los estilos personalizados
 
 const ThreadMessages = () => {
   const { threadId } = useParams();
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-  const [ setUsername] = useState('');
-  const [setAvatar] = useState('');
+  const [username, setUsername] = useState('');
+  const [avatar, setAvatar] = useState('');
   const [page, setPage] = useState(0); // Change to 0-based index for react-paginate
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const limit = 25;
   const [image, setImage] = useState(null);
+
+  const defaultAvatar = 'http://localhost:3001/default/avatar.png';
 
   const fetchMessages = (page) => {
     setLoading(true);
@@ -25,7 +30,8 @@ const ThreadMessages = () => {
         // Prepend host to avatar and image URLs
         const updatedMessages = data.messages.map(message => ({
           ...message,
-          avatar: `http://localhost:3001/${message.avatar}`,
+          avatar: message.avatar ? `http://localhost:3001/${message.avatar}` : defaultAvatar,
+          username: message.username || 'Deleted User',
           image: message.image ? `http://localhost:3001${message.image}` : null
         }));
         setMessages(updatedMessages);
@@ -45,7 +51,7 @@ const ThreadMessages = () => {
         setUsername(data.username);
         setAvatar(`http://localhost:3001/${data.avatar}`);
       });
-  },);
+  }, [page, threadId]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -67,9 +73,9 @@ const ThreadMessages = () => {
           const newMessageData = {
             id: data.messageId,
             content: data.content,
-            username: data.username,
+            username: data.username || 'Deleted User',
             created_at: data.created_at,
-            avatar: `http://localhost:3001/${data.avatar}`,
+            avatar: data.avatar ? `http://localhost:3001/${data.avatar}` : defaultAvatar,
             image: data.image ? `http://localhost:3001${data.image}` : null
           };
 
@@ -93,9 +99,9 @@ const ThreadMessages = () => {
 
   return (
     <div className="container mt-4">
-      <h1>Mensajes del Hilo</h1>
+      <h1>Thread Messages</h1>
       {loading ? (
-        <p>Cargando mensajes...</p>
+        <p>Loading Messages...</p>
       ) : (
         <>
           <ul className="list-group">
@@ -105,7 +111,7 @@ const ThreadMessages = () => {
                   <img 
                     src={message.avatar} 
                     alt="Avatar" 
-                    className="rounded-circle mr-3" 
+                    className="rounded-circle mr-3 border border-dark" 
                     style={{ width: '50px', height: '50px' }} 
                   />
                   <div>
@@ -121,8 +127,8 @@ const ThreadMessages = () => {
             ))}
           </ul>
           <ReactPaginate
-            previousLabel={'Anterior'}
-            nextLabel={'Siguiente'}
+            previousLabel={'Back'}
+            nextLabel={'Next'}
             breakLabel={'...'}
             breakClassName={'break-me'}
             pageCount={totalPages}
@@ -135,13 +141,13 @@ const ThreadMessages = () => {
           />
         </>
       )}
-      {page === totalPages - 1 && ( // Change to 0-based index
+      {(totalPages === 0 || page === totalPages - 1) && ( // Ensure textarea is displayed if no pages or on the last page
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <textarea
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             className="form-control mt-3"
-            placeholder="Escribe tu mensaje"
+            placeholder="Write your Post"
             maxLength="500"
             required
           />
@@ -150,7 +156,7 @@ const ThreadMessages = () => {
             onChange={(e) => setImage(e.target.files[0])}
             className="form-control mt-3"
           />
-          <button type="submit" className="btn btn-primary mt-3">Enviar</button>
+          <button type="submit" className="btn c-button mt-3">Send</button>
         </form>
       )}
     </div>

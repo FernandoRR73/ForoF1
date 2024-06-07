@@ -132,9 +132,9 @@ const CircuitDetail = () => {
       {/* Renderiza enlaces a resultados de carreras si el Gran Premio ya ha ocurrido */}
       {gpNumber && raceHasHappened && (
         <div className="results-links">
-          <Link to={`/race-results/${gpNumber}`}>Race Results</Link>
-          <Link to={`/qualifying-results/${gpNumber}`}>Qualifying Results</Link>
-          {hasSprint && <Link to={`/sprint-results/${gpNumber}`}>Sprint Results</Link>}
+          <Link to={`/race-results/${gpNumber}`} className='btn c-button' >Race Results</Link>
+          <Link to={`/qualifying-results/${gpNumber}`} className='btn c-button'>Qualifying Results</Link>
+          {hasSprint && <Link to={`/sprint-results/${gpNumber}`} className='btn c-button'>Sprint Results</Link>}
         </div>
       )}
     </div>
