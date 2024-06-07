@@ -32,7 +32,7 @@ const Navbar = () => {
   const handleForumClick = (event) => {
     if (!user) {
       event.preventDefault();
-      showNotification('Para acceder al foro, debes estar logueado.');
+      showNotification('To access the forum, you must be logged in.');
       navigate('/login');
     }
   };

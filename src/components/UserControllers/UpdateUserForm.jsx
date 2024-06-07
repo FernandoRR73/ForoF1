@@ -110,7 +110,7 @@ const UpdateUserForm = ({ onUpdate }) => {
 
   return (
     <div className="container mt-5">
-      <h2>Actualizar Perfil</h2>
+      <h2>Update Profile</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3 text-center">
           {profile.avatar && (
@@ -130,7 +130,7 @@ const UpdateUserForm = ({ onUpdate }) => {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Nuevo nombre de usuario:</label>
+          <label className="form-label">New Username:</label>
           <input
             type="text"
             className={`form-control ${errors.newUsername ? 'is-invalid' : ''}`}
@@ -141,7 +141,7 @@ const UpdateUserForm = ({ onUpdate }) => {
           {errors.newUsername && <div className="invalid-feedback">{errors.newUsername}</div>}
         </div>
         <div className="mb-3">
-          <label className="form-label">Nueva contraseña:</label>
+          <label className="form-label">New Password:</label>
           <input
             type="password"
             className="form-control"
@@ -150,7 +150,7 @@ const UpdateUserForm = ({ onUpdate }) => {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Confirmar nueva contraseña:</label>
+          <label className="form-label">Confirm new Password:</label>
           <input
             type="password"
             className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
@@ -159,7 +159,7 @@ const UpdateUserForm = ({ onUpdate }) => {
           />
           {errors.confirmPassword && <div className="invalid-feedback">{errors.confirmPassword}</div>}
         </div>
-        <button type="submit" className="btn c-button">Actualizar</button>
+        <button type="submit" className="btn c-button">Update</button>
       </form>
     </div>
   );

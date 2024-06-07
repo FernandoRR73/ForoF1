@@ -158,7 +158,7 @@ const LapTimes = () => {
       })
         .then(response => response.json())
         .then(data => {
-          if (data.message === 'Tiempo de vuelta eliminado exitosamente') {
+          if (data.message === 'Lap time successfully removed') {
             setLapTimes(lapTimes.filter(lap => lap.id !== id));
           }
         });
@@ -323,14 +323,14 @@ const LapTimes = () => {
       <h1>My Lap Times</h1>
       <Button className='c-button' onClick={() => setShowAddModal(true)}>Add Time</Button>
       <div className="form-group mt-3">
-        <label>Filtrar por circuito:</label>
+        <label>Select track:</label>
         <select
           name="filterCircuit"
           className="form-control"
           value={filterCircuit}
           onChange={(e) => setFilterCircuit(e.target.value)}
         >
-          <option value="">Todos</option>
+          <option value="">All</option>
           {circuitOptions.map(circuit => (
             <option key={circuit.circuitId} value={circuit.circuitId}>{circuit.name}</option>
           ))}
@@ -346,7 +346,7 @@ const LapTimes = () => {
             <th onClick={() => handleSort('lap_time')}>Time</th>
             <th onClick={() => handleSort('controller')}>Game Controller</th>
             <th onClick={() => handleSort('circuit')}>Track</th>
-            <th>Eliminar</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -359,7 +359,7 @@ const LapTimes = () => {
               <td>{lap.lap_time}</td>
               <td>{lap.controller}</td>
               <td>{lap.circuit}</td>
-              <td><Button variant="danger" onClick={(e) => { e.stopPropagation(); handleDelete(lap.id); }}>Eliminar</Button></td>
+              <td><Button variant="danger" onClick={(e) => { e.stopPropagation(); handleDelete(lap.id); }}>Delete</Button></td>
             </tr>
           ))}
         </tbody>
@@ -420,7 +420,7 @@ const LapTimes = () => {
             <div className="form-group form-check">
               <label>
                 <input type="checkbox" name="includeSetup" className="form-check-input" checked={form.includeSetup} onChange={handleChange} />
-                Incluir Setup
+                Add Setup
               </label>
             </div>
             {form.includeSetup && renderSetupFields(form, handleChange)}

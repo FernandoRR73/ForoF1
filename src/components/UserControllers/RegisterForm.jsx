@@ -50,10 +50,10 @@ const RegisterForm = () => {
       <Row className="w-100">
         <Col xs={12} md={6} lg={4} className="mx-auto">
           <Form onSubmit={handleSubmit}>
-            <h2>Registro</h2>
+            <h2>Register Now</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form.Group controlId="formEmail">
-              <Form.Label>Correo Electrónico:</Form.Label>
+              <Form.Label>Mail:</Form.Label>
               <Form.Control
                 type="email"
                 value={email}
@@ -62,7 +62,7 @@ const RegisterForm = () => {
               />
             </Form.Group>
             <Form.Group controlId="formUsername">
-              <Form.Label>Nombre de Usuario:</Form.Label>
+              <Form.Label>Username:</Form.Label>
               <Form.Control
                 type="text"
                 value={username}
@@ -71,7 +71,7 @@ const RegisterForm = () => {
               />
             </Form.Group>
             <Form.Group controlId="formPassword">
-              <Form.Label>Contraseña:</Form.Label>
+              <Form.Label>Password:</Form.Label>
               <Form.Control
                 type="password"
                 value={password}
@@ -80,7 +80,7 @@ const RegisterForm = () => {
               />
             </Form.Group>
             <Form.Group controlId="formConfirmPassword">
-              <Form.Label>Confirmar Contraseña:</Form.Label>
+              <Form.Label>Confirm Password:</Form.Label>
               <Form.Control
                 type="password"
                 value={confirmPassword}
@@ -89,7 +89,7 @@ const RegisterForm = () => {
               />
             </Form.Group>
             <Button variant="primary" type="submit" className="custom-button">
-              Registrarse
+              Sign in
             </Button>
           </Form>
         </Col>

@@ -48,6 +48,7 @@ const QualifyingResults = () => {
         <thead>
           <tr>
             <th>Position</th>
+            <th>Dorsal</th>
             <th>Driver</th>
             <th>Constructor</th>
             <th>Q1</th>

@@ -52,7 +52,7 @@ const RaceResults = () => {
         <thead>
           <tr>
             <th>Position</th>
-            <th>Number</th>
+            <th>Dorsal</th>
             <th>Driver</th>
             <th>Constructor</th>
             <th>Time</th>

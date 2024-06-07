@@ -56,10 +56,10 @@ const LoginForm = () => {
       <Row className="w-100">
         <Col xs={12} md={6} lg={4} className="mx-auto">
           <Form onSubmit={handleSubmit}>
-            <h2>Iniciar Sesión</h2>
+            <h2>Log in</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form.Group controlId="formEmail">
-              <Form.Label>Correo Electrónico:</Form.Label>
+              <Form.Label>Mail:</Form.Label>
               <Form.Control
                 type="email"
                 value={email}
@@ -68,7 +68,7 @@ const LoginForm = () => {
               />
             </Form.Group>
             <Form.Group controlId="formPassword">
-              <Form.Label>Contraseña:</Form.Label>
+              <Form.Label>password:</Form.Label>
               <Form.Control
                 type="password"
                 value={password}
@@ -77,7 +77,7 @@ const LoginForm = () => {
               />
             </Form.Group>
             <Button variant="primary" type="submit" className="custom-button">
-              Iniciar Sesión
+              Log in
             </Button>
           </Form>
         </Col>
